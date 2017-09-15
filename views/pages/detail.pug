@@ -1,0 +1,42 @@
+extends ../frame/main
+
+block inner
+  .data-box.picked
+    .drop-bg(style="background-image: url('http://image.tmdb.org/t/p/original/n1y094tVDFATSzkTnFxoGZ1qNsG.jpg')")
+    .container.flex.grid-dym
+      .poster
+        img.img(src="http://image.tmdb.org/t/p/w500/inVq3FRqcYIRl2la8iZikYYxFNR.jpg")
+      .detail
+        .title-wrap
+          h3.title Deadpool
+          .rate.circle-progress(alt="vote average: 6.3")
+            .percent
+              span.percent-number 63
+              span.percentage %
+            canvas.canvas(width="100" height="100")
+            script
+              include ../../scripts/circle-progress.js
+
+        .tagline.text-thin Witness the beginning of a happy ending
+        .overview
+          p
+            | Deadpool tells the origin story of former Special Forces operative turned mercenary Wade Wilson,&nbsp;
+            | who after being subjected to a rogue experiment that leaves him with accelerated healing powers,&nbsp;
+            | adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor,&nbsp;
+            | Deadpool hunts down the man who nearly destroyed his life.
+        .others.list-beauty
+          .language.item
+            span.topic Original Languages
+            span.inner English
+          .runtime.item
+            span.topic Runtime
+            span.inner 91 mins
+          .realeased.item
+            span.topic Release Date
+            time.inner(alt="2015-06-17") 2016-02-09
+        .genre
+          ul.tags
+            li.item Animation
+            li.item Adventure
+            li.item Comedy
+            li.item Family

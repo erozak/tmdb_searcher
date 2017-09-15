@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|PT+Sans|Pragati+Narrow|Voltaire" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TMDB Searcher</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="head">
+        <div class="navbar">
+          <div class="logo img-wrap"><img class="img" src="../assests/images/tmdb_logo_stacked_green.svg" alt="TMDB Logo"></div>
+          <nav class="nav"><a class="nav-item" href="discover.html" alt="discover">Discover</a></nav>
+          <div class="input-group search-wrap">
+            <label class="lb" for="search"><i class="fa fa-search"></i></label>
+            <div class="inp-wrap">
+              <input class="inp" id="search" type="text" placeholder="Movie, TV Series ...">
+              <div class="autocomplete-wrap" style="display:none;">
+                <ul class="autocomplete">
+                  <li class="item">
+                    <button class="btn" type="button"><i class="fa fa-arrow-circle-right"></i>TEST</button>
+                  </li>
+                  <li class="item">
+                    <button class="btn" type="button"><i class="fa fa-arrow-circle-right"></i>TEST</button>
+                  </li>
+                  <li class="item">
+                    <button class="btn" type="button"><i class="fa fa-arrow-circle-right"></i>TEST</button>
+                  </li>
+                  <li class="item">
+                    <button class="btn" type="button"><i class="fa fa-arrow-circle-right"></i>TEST</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="btn btn-exec" type="button">Search</button>
+          </div>
+        </div>
+      </header>
+      <div class="main">
+        <div class="container">
+          <div class="waterfall">
+            <div class="drop-bg" style="background-image: url('http://image.tmdb.org/t/p/original/uX7LXnsC7bZJZjn048UCOwkPXWJ.jpg');"></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="item"><a class="data-box card" href="#">
+                <div class="flex">
+                  <div class="poster"><img class="img" src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"></div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <div class="title">Limitless</div>
+                    </div>
+                    <div class="tagline text-thin">Witness the beginning of a happy ending</div>
+                    <div class="others">
+                      <div class="runtime item"><span class="topic">Runtime</span><span class="inner">91 mins</span></div>
+                      <div class="realeased item"><span class="topic">Release Date</span>
+                        <time class="inner" alt="2015-06-17">2016-02-09</time>
+                      </div>
+                    </div>
+                    <div class="genre">
+                      <ul class="tags">
+                        <li class="item">Animation</li>
+                        <li class="item">Adventure</li>
+                        <li class="item">Comedy</li>
+                        <li class="item">Family</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div></a></div>
+          </div>
+        </div>
+      </div>
+      <footer class="foot"><a href="#" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a><a href="#" target="_blank" rel="noopener noreferrer">Erozak</a>&nbsp;&copy;&nbsp;
+        <time alt="2017">2017</time>
+      </footer>
+    </div>
+  </body>
+</html>

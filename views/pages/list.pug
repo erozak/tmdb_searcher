@@ -1,0 +1,33 @@
+extends ../frame/main
+
+mixin waterfall-card()
+  .item
+    a.data-box.card(href="#")
+      .flex
+        .poster
+          img.img(src="http://image.tmdb.org/t/p/w185/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg")
+        .detail
+          .title-wrap
+            .title Limitless
+          .tagline.text-thin Witness the beginning of a happy ending
+          .others
+            .runtime.item
+              span.topic Runtime
+              span.inner 91 mins
+            .realeased.item
+              span.topic Release Date
+              time.inner(alt="2015-06-17") 2016-02-09
+          .genre
+            ul.tags
+              li.item Animation
+              li.item Adventure
+              li.item Comedy
+              li.item Family
+
+block inner
+  .container
+    .waterfall
+      .drop-bg(style="background-image: url('http://image.tmdb.org/t/p/original/uX7LXnsC7bZJZjn048UCOwkPXWJ.jpg');")
+      - for (var i = 0; i <= 20; i++) {
+        +waterfall-card()
+      - }
