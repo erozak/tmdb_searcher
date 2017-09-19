@@ -8,17 +8,24 @@
     "max-len": 0,
     "new-cap": [0],
     "no-console": 0,
+    "no-undef": 1,
+    "no-unused-vars": 1,
     "react/forbid-prop-types": 1,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/react-in-jsx-scope": 0,
     "react/prop-types": ["error", {"ignore": ["children", "route"]}],
     "react/self-closing-comp": 1,
+    "class-property/class-property-semicolon": [0, "always"],
+    "jsx-a11y/href-no-hash": 1,
   },
   "env" :{
     "browser": true,
   },
   "plugins": [
+    "babel",
     "react",
-    "jsx-a11y",
-    "import"
+    "import",
+    "class-property",
+    "jsx-a11y"
   ]
 }

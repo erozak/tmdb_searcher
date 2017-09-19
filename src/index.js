@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import 'font-awesome-webpack';
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
@@ -8,13 +7,13 @@ import './normalize.css';
 import '../sass/main.scss';
 
 import store from './store';
-
-import Frame from './containers/Frame';
-
+import Layout from './scenes/Layout';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Frame />
-  </Provider>,
+  (
+    <Provider store={store}>
+      <Layout />
+    </Provider>
+  ),
   document.querySelector('#app'),
 );

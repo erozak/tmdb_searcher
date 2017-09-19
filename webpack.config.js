@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 const FaviconswebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const HtmlwebpackPluginConfig = new HtmlwebpackPlugin({
   template: `${__dirname}/src/index.html`,
@@ -20,10 +21,15 @@ const FaviconswebpackPluginConfig = new FaviconswebpackPlugin({
 });
 
 const ProvidePluginConfig = new webpack.ProvidePlugin({
-  'React': 'react',
-})
+  React: 'react',
+});
 
-module.exports = {
+const DotenvConfig = new Dotenv({
+  path: './.env',
+  safe: false,
+});
+
+const webpackConfig = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: `${__dirname}/dist`,
@@ -46,7 +52,7 @@ module.exports = {
             presets: [
               'react',
               ['es2015', { loose: true, modules: false }],
-              'stage-3',
+              'stage-2',
             ],
           },
         }],
@@ -81,9 +87,12 @@ module.exports = {
     port: 3000,
   },
   plugins: [
+    DotenvConfig,
     ProvidePluginConfig,
     HtmlwebpackPluginConfig,
     FaviconswebpackPluginConfig,
     new ExtractTextPlugin('main.css'),
   ],
 };
+
+module.exports = webpackConfig;
