@@ -32,7 +32,7 @@ const DotenvConfig = new Dotenv({
 const webpackConfig = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}`,
     filename: 'bundle.js',
   },
   module: {
