@@ -32,7 +32,6 @@
     margin: 0 auto;
 
     .poster {
-      flex: 0 0 45%;
       border-radius: .25em 0 0 .25em;
       height: auto;
     }
@@ -45,27 +44,26 @@
       }
 
       .title-wrap {
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: flex;
+        display: block;
         width: 100%;
         line-height: 1.2;
-        justify-content: flex-start;
-        align-items: flex-start;
+        font-size: 2em;
 
         .title {
           flex: 1 1 auto;
           margin: 0;
           font-size: 1em;
           word-break: break-word;
+          transition: font-size $transition-duration $transition-cuz;
         }
 
         .rate {
-          align-self: flex-start;
-          flex: 0 0 auto;
+          float: right;
           margin-left: .25em;
           width: 1em;
           height: 1em;
+          font-size: 1em;
+          transition: all $transition-duration $transition-cuz;
         }
       }
 
@@ -103,7 +101,7 @@
   z-index: 10;
 
   .poster {
-    flex: 0 0 40%;
+    flex: 0 0 185px!important;
   }
 
   .detail {
@@ -114,13 +112,15 @@
     padding: 1em;
 
     .title-wrap {
-      font-size: 1.75em;
       flex-grow: 1;
+
+      @include rwd-tablet {
+        font-size: 1.5em!important;
+      }
 
       .title {
         flex: 1 1 auto;
         margin: 0;
-        font-size: 1em;
         word-break: break-all;
       }
     }
@@ -203,6 +203,7 @@ a.card {
     }
 
     .poster {
+      flex: 0 0 500px;
       transition: border-radius $transition-duration $transition-cuz;
 
       @include rwd-tablet {
@@ -224,22 +225,14 @@ a.card {
 
       .title-wrap {
         font-size: 3em;
-        transition: font-size $transition-duration $transition-cuz;
 
         @include rwd-tablet {
           font-size: 2em;
         }
 
-        .title {
-          @include rwd-tablet {
-            order: 2;
-          }
-        }
-
         .rate {
           @include rwd-tablet {
-            margin: 0 .25em 0 0;
-            order: 1;
+            font-size: 2em;
           }
         }
       }

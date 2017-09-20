@@ -7,33 +7,38 @@ import WaterfallItemOfMovie from './WaterfallItemOfMovie';
 import TMDB from '../../../constants/TMDB';
 
 const Waterfall = ({
-  backdrop,
   movies,
   getDetail,
-}) => (
-  <div className="waterfall">
-    {
-      backdrop.length && (
-        <div
-          className="drop-bg"
-          style={{
-            backgroundImage: `url("${TMDB.path.image + Path.join('/original', backdrop)}")`,
-          }}
-        />
-      )
-    }
-    {
-      movies.map(movieItem => (
-        <div className="item" key={Shortid.generate()}>
-          <WaterfallItemOfMovie {...movieItem.toJS()} getDetail={getDetail} />
-        </div>
-      )).toJS()
-    }
-  </div>
-);
+}) => {
+  const moviesAmount = movies.size;
+  const randomIndex = moviesAmount > 0 ? Math.floor(Math.random() * moviesAmount) : -1;
+  const backdrop = randomIndex > -1 ? movies.getIn([randomIndex, 'backdrop']) : '';
+
+
+  return (
+    <div className="waterfall">
+      {
+        (moviesAmount > 0 && backdrop && backdrop.length > 0) && (
+          <div
+            className="drop-bg"
+            style={{
+              backgroundImage: `url("${TMDB.path.image + Path.join('/original', backdrop)}")`,
+            }}
+          />
+        )
+      }
+      {
+        movies.map(movieItem => (
+          <div className="item" key={Shortid.generate()}>
+            <WaterfallItemOfMovie {...movieItem.toJS()} getDetail={getDetail} />
+          </div>
+        )).toJS()
+      }
+    </div>
+  );
+};
 
 Waterfall.propTypes = {
-  backdrop: PropTypes.string.isRequired,
   movies: IPropTypes.list.isRequired,
   getDetail: PropTypes.func.isRequired,
 };

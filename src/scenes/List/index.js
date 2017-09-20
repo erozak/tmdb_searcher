@@ -8,16 +8,9 @@ const List = props => (
   <Waterfall {...props} />
 );
 
-const mapStateToProps = (state) => {
-  const moviesAmount = state.getIn(['tmdb', 'movies']).size;
-  const randomIndex = moviesAmount ? Math.floor(Math.random() * moviesAmount) : -1;
-  const backdrop = randomIndex > -1 ? state.getIn(['tmdb', 'movies', randomIndex, 'backdrop']) : '';
-
-  return {
-    backdrop,
-    movies: state.getIn(['tmdb', 'movies']),
-  };
-};
+const mapStateToProps = state => ({
+  movies: state.getIn(['tmdb', 'movies']),
+});
 
 const mapDispatchToProps = dispatch => ({
   getDetail: id => (

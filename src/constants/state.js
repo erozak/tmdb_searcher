@@ -1,6 +1,7 @@
 import { fromJS as toImmutable } from 'immutable';
 
 const state = toImmutable({
+  query: '',
   listOpt: {},
   detail: {},
   movies: [],

@@ -4,23 +4,13 @@ import PropTypes from 'prop-types';
 
 import FrameComponent from './components/Frame';
 import { onTmdbInit } from '../../actions';
-
+import TMDB from '../../constants/TMDB';
 
 class Frame extends React.Component {
   componentDidMount() {
     const { toInit } = this.props;
-    const randomPastYear = (new Date()).getFullYear() - (1 + Math.floor(Math.random() * 10));
 
-    toInit({
-      include_adult: false,
-      include_video: false,
-      language: 'en-US',
-      page: 1,
-      primary_release_year: randomPastYear,
-      sort_by: 'popularity.des',
-      'vote_average.gte': 6,
-      'vote_count.gte': 100,
-    });
+    toInit(TMDB.defaultOptions.discover);
   }
   render() {
     const { hasDetail } = this.props;

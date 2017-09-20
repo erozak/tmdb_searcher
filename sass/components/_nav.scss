@@ -152,9 +152,15 @@
 .nav {
 
   .nav-item {
+    border: 0 none;
+    padding: .375em .75em .25em;
     font-weight: bold;
+    color: $link-color;
+    background-color: transparent;
+    cursor: pointer;
 
     &:hover {
+      color: $link-hover-color;
       text-decoration: none;
     }
   }

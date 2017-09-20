@@ -15,7 +15,11 @@ const WaterfallItemOfMovie = ({
   <div className="data-box card">
     <div className="flex">
       <div className="poster">
-        <img className="img" src={TMDB.path.image + Path.join('/w185', poster)} alt={title} />
+        {
+          (poster && poster.length > 0) && (
+            <img className="img" src={TMDB.path.image + Path.join('/w185', poster)} alt={title} />
+          )
+        }
       </div>
       <div className="detail">
         <div className="title-wrap">
@@ -34,10 +38,14 @@ const WaterfallItemOfMovie = ({
             <span className="topic">Language</span>
             <span className="inner">{language}</span>
           </div>
-          <div className="realeased item">
-            <span className="topic">Release Date</span>
-            <time className="inner" alt={release}>{release}</time>
-          </div>
+          {
+            (release && release.length > 0) && (
+              <div className="realeased item">
+                <span className="topic">Release Date</span>
+                <time className="inner" alt={release}>{release}</time>
+              </div>
+            )
+          }
         </div>
         <div>
           <a href="#" onClick={getDetail(id)}>See More</a>
@@ -50,11 +58,16 @@ const WaterfallItemOfMovie = ({
 WaterfallItemOfMovie.propTypes = {
   id: PropTypes.number.isRequired,
   adult: PropTypes.bool.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.string,
   title: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
-  release: PropTypes.string.isRequired,
+  release: PropTypes.string,
   getDetail: PropTypes.func.isRequired,
+};
+
+WaterfallItemOfMovie.defaultProps = {
+  poster: '',
+  release: '',
 };
 
 export default WaterfallItemOfMovie;

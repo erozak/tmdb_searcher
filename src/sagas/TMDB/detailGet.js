@@ -28,7 +28,7 @@ export default function* detailGet({ payload: { id } }) {
       tagline: response.get('tagline'),
       rate: response.get('vote_average'),
     });
-    console.log(detail.toJS());
+
     yield put(onTmdbDetailSave(detail));
   } else {
     console.err('[ERR][SAGA] Detail Get : ', error);

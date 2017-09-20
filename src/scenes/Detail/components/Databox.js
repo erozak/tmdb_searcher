@@ -1,6 +1,7 @@
 import Path from 'path';
 import PropTypes from 'prop-types';
 import Shortid from 'shortid';
+import { List } from 'immutable';
 
 import ProgressCircle from '../../../models/ProgressCircle';
 import TMDB from '../../../constants/TMDB';
@@ -18,37 +19,61 @@ const Databox = ({
   genres,
 }) => (
   <div className="data-box picked">
-    <div
-      className="drop-bg"
-      style={{
-        backgroundImage: `url("${TMDB.path.image + Path.join('/original', backdrop)}")`,
-      }}
-    />
+    {
+      (backdrop && backdrop.length > 0) && (
+        <div
+          className="drop-bg"
+          style={{
+            backgroundImage: `url("${TMDB.path.image + Path.join('/original', backdrop)}")`,
+          }}
+        />
+      )
+    }
     <div className="container flex grid-dym">
       <div className="poster">
-        <img className="img" src={TMDB.path.image + Path.join('/w500', poster)} alt={title} />
+        {
+          (poster && poster.length > 0) && (
+            <img className="img" src={TMDB.path.image + Path.join('/w500', poster)} alt={title} />
+          )
+        }
       </div>
       <div className="detail">
         <div className="title-wrap">
+          <ProgressCircle className="rate" rate={rate || 0} />
           <h3 className="title">{title}</h3>
-          <ProgressCircle className="rate" rate={rate} />
         </div>
-        <div className="tagline text-thin">{tagline}</div>
-        <div className="overview">
-          <p>{overview}</p>
-        </div>
+        {
+          (tagline && tagline.length > 0) && (
+            <div className="tagline text-thin">{tagline}</div>
+          )
+        }
+        {
+          (overview && overview.length > 0) && (
+            <div className="overview">
+              <p>{overview}</p>
+            </div>
+          )
+        }
         <div className="others list-beauty">
           <div className="language item">
             <span className="topic">Languages</span>
             <span className="inner">{language}</span>
           </div>
-          <div className="runtime item">
-            <span className="topic">Runtime</span>
-            <span className="inner">{`${runtime} mins`}</span>
-          </div>
-          <div className="realeased item"><span className="topic">Release Date</span>
-            <time className="inner" alt={release}>{release}</time>
-          </div>
+          {
+            isNaN(runtime) && (
+              <div className="runtime item">
+                <span className="topic">Runtime</span>
+                <span className="inner">{`${runtime} mins`}</span>
+              </div>
+            )
+          }
+          {
+            (release && release.length > 0) && (
+              <div className="realeased item"><span className="topic">Release Date</span>
+                <time className="inner" alt={release}>{release}</time>
+              </div>
+            )
+          }
         </div>
         <div className="genre">
           <ul className="tags">
@@ -66,15 +91,26 @@ const Databox = ({
 
 Databox.propTypes = {
   title: PropTypes.string.isRequired,
-  backdrop: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  rate: PropTypes.number.isRequired,
-  tagline: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
+  backdrop: PropTypes.string,
+  poster: PropTypes.string,
+  rate: PropTypes.number,
+  tagline: PropTypes.string,
+  overview: PropTypes.string,
   language: PropTypes.string.isRequired,
-  runtime: PropTypes.number.isRequired,
-  release: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  runtime: PropTypes.number,
+  release: PropTypes.string,
+  genres: PropTypes.arrayOf(PropTypes.string),
+};
+
+Databox.defaultProps = {
+  backdrop: '',
+  poster: '',
+  rate: 0,
+  tagline: '',
+  overview: '',
+  runtime: 0,
+  release: '',
+  genres: List(),
 };
 
 export default Databox;
