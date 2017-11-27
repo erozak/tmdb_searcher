@@ -1,8 +1,8 @@
 node_modules/
-yarn.lock
 yarn-error.log
 .atomignore
 *.sublime-project
 *.sublime-workspace
 .env
 npm-debug.log
+dist
