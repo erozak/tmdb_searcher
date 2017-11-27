@@ -50,7 +50,7 @@ const WaterfallItemOfMovie = ({
           }
         </div>
         <div>
-          <a href="#" onClick={getDetail(id)}>See More</a>
+          <a href="#!" onClick={getDetail(id)}>See More</a>
         </div>
       </div>
     </div>

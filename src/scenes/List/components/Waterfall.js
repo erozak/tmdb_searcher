@@ -13,14 +13,27 @@ const Waterfall = ({
   getDetail,
 }) => {
   const moviesAmount = movies.size;
-  const randomIndex = moviesAmount > 0 ? Math.floor(Math.random() * moviesAmount) : -1;
+  const hasMovie = movies.size > 0;
+  const randomIndex = hasMovie ? Math.floor(Math.random() * moviesAmount) : -1;
   const backdrop = randomIndex > -1 ? movies.getIn([randomIndex, 'backdrop']) : '';
+  const hasBackdrop = backdrop && backdrop.length > 0;
 
+  const movieRender = hasMovie
+    ? (
+      movies.map(movieItem => (
+        <div className="item" key={Shortid.generate()}>
+          <WaterfallItemOfMovie {...movieItem.toJS()} getDetail={getDetail} />
+        </div>
+      )).toJS()
+    )
+    : (
+      <p>Oops! Found nothing.</p>
+    );
 
   return (
     <div className="waterfall">
       {
-        (moviesAmount > 0 && backdrop && backdrop.length > 0) && (
+        (hasMovie && hasBackdrop) && (
           <div
             className="drop-bg"
             style={{
@@ -29,13 +42,7 @@ const Waterfall = ({
           />
         )
       }
-      {
-        movies.map(movieItem => (
-          <div className="item" key={Shortid.generate()}>
-            <WaterfallItemOfMovie {...movieItem.toJS()} getDetail={getDetail} />
-          </div>
-        )).toJS()
-      }
+      {movieRender}
     </div>
   );
 };
