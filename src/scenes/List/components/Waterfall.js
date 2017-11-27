@@ -1,6 +1,5 @@
 import React from 'react';
 import Path from 'path';
-import PropTypes from 'prop-types';
 import IPropTypes from 'react-immutable-proptypes';
 import Shortid from 'shortid';
 
@@ -10,7 +9,6 @@ import WaterfallItemOfMovie from './WaterfallItemOfMovie';
 
 const Waterfall = ({
   movies,
-  getDetail,
 }) => {
   const moviesAmount = movies.size;
   const hasMovie = movies.size > 0;
@@ -22,7 +20,7 @@ const Waterfall = ({
     ? (
       movies.map(movieItem => (
         <div className="item" key={Shortid.generate()}>
-          <WaterfallItemOfMovie {...movieItem.toJS()} getDetail={getDetail} />
+          <WaterfallItemOfMovie {...movieItem.toJS()} />
         </div>
       )).toJS()
     )
@@ -49,7 +47,6 @@ const Waterfall = ({
 
 Waterfall.propTypes = {
   movies: IPropTypes.list.isRequired,
-  getDetail: PropTypes.func.isRequired,
 };
 
 export default Waterfall;

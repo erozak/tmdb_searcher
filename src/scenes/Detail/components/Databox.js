@@ -1,6 +1,7 @@
 import React from 'react';
 import Path from 'path';
 import PropTypes from 'prop-types';
+import IPropTypes from 'react-immutable-proptypes';
 import Shortid from 'shortid';
 import { List } from 'immutable';
 
@@ -91,24 +92,26 @@ const Databox = ({
 );
 
 Databox.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   backdrop: PropTypes.string,
   poster: PropTypes.string,
   rate: PropTypes.number,
   tagline: PropTypes.string,
   overview: PropTypes.string,
-  language: PropTypes.string.isRequired,
+  language: PropTypes.string,
   runtime: PropTypes.number,
   release: PropTypes.string,
-  genres: PropTypes.arrayOf(PropTypes.string),
+  genres: IPropTypes.listOf(PropTypes.string),
 };
 
 Databox.defaultProps = {
+  title: '',
   backdrop: '',
   poster: '',
   rate: 0,
   tagline: '',
   overview: '',
+  language: '',
   runtime: 0,
   release: '',
   genres: List(),

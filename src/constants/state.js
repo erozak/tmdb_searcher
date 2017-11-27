@@ -3,7 +3,7 @@ import { fromJS as toImmutable } from 'immutable';
 const state = toImmutable({
   query: '',
   listOpt: {},
-  detail: {},
+  detail: undefined,
   movies: [],
   pagination: {/*
     total: <Number>,

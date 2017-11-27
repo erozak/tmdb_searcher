@@ -2,6 +2,7 @@ import React from 'react';
 import Path from 'path';
 import PropTypes from 'prop-types';
 import IconExclamation from 'react-icons/lib/fa/exclamation-triangle';
+import { Link } from 'react-router-dom';
 
 import TMDB from '@/constants/TMDB';
 
@@ -12,7 +13,6 @@ const WaterfallItemOfMovie = ({
   adult,
   language,
   release,
-  getDetail,
 }) => (
   <div className="data-box card">
     <div className="flex">
@@ -50,7 +50,7 @@ const WaterfallItemOfMovie = ({
           }
         </div>
         <div>
-          <a href="#!" onClick={getDetail(id)}>See More</a>
+          <Link to={`/${id}`}>See More</Link>
         </div>
       </div>
     </div>
@@ -64,7 +64,6 @@ WaterfallItemOfMovie.propTypes = {
   title: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
   release: PropTypes.string,
-  getDetail: PropTypes.func.isRequired,
 };
 
 WaterfallItemOfMovie.defaultProps = {

@@ -1,46 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import {
+  Switch,
+  Route,
+  withRouter,
+} from 'react-router-dom';
 
+import Detail from '@/scenes/Detail';
+import List from '@/scenes/List';
 
-import { onTmdbInit } from '@/actions';
-import TMDB from '@/constants/TMDB';
+import Head from './components/Head';
+import Foot from './components/Foot';
 
-import FrameComponent from './components/Frame';
+const Frame = () => (
+  <div className="wrap">
+    <Head />
+    <div className="main">
+      <div className="container">
+        <Switch>
+          <Route path="/" exact component={List} />
+          <Route path="/:id" component={Detail} />
+        </Switch>
+      </div>
+    </div>
+    <Foot />
+  </div>
+);
 
-class Frame extends React.Component {
-  componentDidMount() {
-    const { toInit } = this.props;
-
-    toInit(TMDB.defaultOptions.discover);
-  }
-  render() {
-    const { hasDetail } = this.props;
-
-    return (
-      <FrameComponent
-        hasDetail={hasDetail}
-      />
-    );
-  }
-}
-
-Frame.propTypes = {
-  hasDetail: PropTypes.bool.isRequired,
-  toInit: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = state => ({
-  hasDetail: !state.getIn(['tmdb', 'detail']).isEmpty(),
-});
-
-const mapDispatchToProps = dispatch => ({
-  toInit: options => (
-    dispatch(onTmdbInit(options))
-  ),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Frame);
+export default withRouter(connect()(Frame));

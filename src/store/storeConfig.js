@@ -4,32 +4,35 @@ import {
 } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import { createSagaMonitor } from 'redux-saga-devtools';
 import { Map } from 'immutable';
+import { routerMiddleware } from 'react-router-redux';
 
 import reducer from '@/reducers';
 import sagas from '@/sagas';
 
 const initialState = Map();
-export const sagaMonitor = createSagaMonitor();
-const sagaMiddleware = createSagaMiddleware({ SagaMonitor: sagaMonitor });
 
-const logger = createLogger({
-  collapsed: () => true,
-  diff: true,
-  stateTransformer: state => state.toJS(),
-});
+export default function storeConfig(history) {
+  const sagaMiddleware = createSagaMiddleware();
+  const routerMiddlewareWithHistory = routerMiddleware(history);
 
-const middleWare = process.env.NODE_ENV === 'production'
-  ? applyMiddleware(sagaMiddleware)
-  : applyMiddleware(logger, sagaMiddleware);
+  const logger = createLogger({
+    collapsed: () => true,
+    diff: true,
+    stateTransformer: state => state.toJS(),
+  });
 
-const store = createStore(
-  reducer,
-  initialState,
-  middleWare,
-);
+  const middleWare = process.env.NODE_ENV === 'production'
+    ? applyMiddleware(sagaMiddleware, routerMiddlewareWithHistory)
+    : applyMiddleware(sagaMiddleware, routerMiddlewareWithHistory, logger);
 
-sagaMiddleware.run(sagas);
+  const store = createStore(
+    reducer,
+    initialState,
+    middleWare,
+  );
 
-export default store;
+  sagaMiddleware.run(sagas);
+
+  return store;
+}

@@ -5,8 +5,8 @@ import { fromJS as beImmutable } from 'immutable';
 import {
   onTmdbDetailClear,
   onTmdbDetailSave,
-} from '../../actions';
-import { getMovie } from '../../tmdbApi';
+} from '@/actions';
+import { getMovie } from '@/tmdbApi';
 
 export default function* detailGet({ payload: { id } }) {
   put(onTmdbDetailClear());
