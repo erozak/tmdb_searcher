@@ -1,3 +1,4 @@
+import React from 'react';
 import Path from 'path';
 import PropTypes from 'prop-types';
 import Shortid from 'shortid';

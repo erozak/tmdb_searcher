@@ -30,7 +30,9 @@ export default function* detailGet({ payload: { id } }) {
     });
 
     yield put(onTmdbDetailSave(detail));
+  } else if (process.env.NODE_ENV === 'development') {
+    console.error('[ERR][SAGA] Detail Get : ', error);
   } else {
-    console.err('[ERR][SAGA] Detail Get : ', error);
+    alert('Oops! Something error. Please reload and try again.');
   }
 }

@@ -27,7 +27,7 @@ function draw(ctx, txt, rate, s, p, r, d, l, t) {
 
     txt.innerHTML = percent;
 
-    // Outer Cyccle
+    // Outer Cycle
     ctx.beginPath();
     ctx.strokeStyle = l.defaultColor;
     ctx.lineWidth = l.outer;

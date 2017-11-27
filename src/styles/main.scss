@@ -1,0 +1,28 @@
+@import './variables';
+@import './mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: $font-normal;
+  color: $font-color;
+  line-height: 1.6;
+  background-color: $bg-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  @include transition;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
+}
+
+@import 'components/index';

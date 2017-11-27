@@ -5,7 +5,7 @@ import {
   TMDB_DISCOVER_GET,
   TMDB_INIT,
   TMDB_SEARCH_GET,
-} from '../../constants/actionTypes';
+} from '@/constants/actionTypes';
 
 import detailGet from './detailGet';
 import discoverGet from './discoverGet';

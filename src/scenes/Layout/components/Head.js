@@ -1,3 +1,5 @@
+import React from 'react';
+
 import tmdbLogo from '../images';
 import DiscoverButton from '../containers/discoverButton';
 import SearchButton from '../containers/searchButton';

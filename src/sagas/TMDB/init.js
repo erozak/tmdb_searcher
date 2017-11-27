@@ -4,8 +4,8 @@ import {
   onTmdbListClear,
   onTmdbListSave,
   onTmdbPageSet,
-} from '../../actions';
-import { discoverMovie as getDiscover } from '../../tmdbApi';
+} from '@/actions';
+import { discoverMovie as getDiscover } from '@/tmdbApi';
 import discoverMovieFilter from './utils/discoverMovieFilter';
 
 export default function* init({ payload: { options } }) {
@@ -18,7 +18,9 @@ export default function* init({ payload: { options } }) {
 
     yield put(onTmdbListSave(movies));
     yield put(onTmdbPageSet(pagination));
-  } else {
+  } else if (process.env.NODE_ENV === 'development') {
     console.error('[ERR][SAGA][TMDB] Init - Discover : ', discover);
+  } else {
+    alert('Oops! Something error. Please reload and try again.');
   }
 }

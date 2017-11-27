@@ -1,0 +1,7 @@
+.btn {
+  font-family: inherit;
+  line-height: inherit;
+  outline: 0 none;
+
+  @include transition;
+}

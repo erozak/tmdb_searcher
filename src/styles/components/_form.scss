@@ -1,0 +1,19 @@
+@include placholder {
+  color: $green;
+  font-weight: bold;
+  line-height: 1.6;
+};
+
+.input-group {
+  display: block;
+}
+
+.lb {}
+
+.inp {
+  font-family: inherit;
+  line-height: inherit;
+  outline: 0 none;
+
+  @include transition;
+}

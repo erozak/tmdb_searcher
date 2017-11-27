@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { fromJS as beImmutable } from 'immutable';
 
-import TMDB from '../constants/TMDB';
+import TMDB from '@/constants/TMDB';
 
 const movie = (id) => {
   /*

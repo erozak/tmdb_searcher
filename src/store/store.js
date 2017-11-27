@@ -7,8 +7,8 @@ import createSagaMiddleware from 'redux-saga';
 import { createSagaMonitor } from 'redux-saga-devtools';
 import { Map } from 'immutable';
 
-import reducer from '../reducers';
-import sagas from '../sagas';
+import reducer from '@/reducers';
+import sagas from '@/sagas';
 
 const initialState = Map();
 export const sagaMonitor = createSagaMonitor();

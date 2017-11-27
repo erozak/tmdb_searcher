@@ -1,4 +1,5 @@
-import AUTHOR from '../../../constants/AUTHOR';
+import React from 'react';
+import AUTHOR from '@/constants/AUTHOR';
 
 const Foot = () => (
   <footer className="foot">

@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+
+import { onTmdbInit } from '@/actions';
+import TMDB from '@/constants/TMDB';
+
 import FrameComponent from './components/Frame';
-import { onTmdbInit } from '../../actions';
-import TMDB from '../../constants/TMDB';
 
 class Frame extends React.Component {
   componentDidMount() {

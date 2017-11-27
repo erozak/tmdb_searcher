@@ -1,9 +1,10 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
   onTmdbSearchGet,
-} from '../../../actions';
+} from '@/actions';
 
 const SearchButton = ({ query, ...others }) => (
   <button type="button" {...others}>Search</button>

@@ -1,10 +1,10 @@
+import React from 'react';
 import 'babel-polyfill';
-import 'font-awesome-webpack';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import './normalize.css';
-import '../sass/main.scss';
+import 'sanitize.css';
+import '@/styles/main.scss';
 
 import store from './store';
 import Layout from './scenes/Layout';

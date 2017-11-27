@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { Map, List } from 'immutable';
 
-import defaultState from '../../constants/state';
+import defaultState from '@/constants/state';
 import {
   TMDB_DETAIL_CLEAR,
   TMDB_DETAIL_SAVE,
@@ -9,7 +9,7 @@ import {
   TMDB_LIST_SAVE,
   TMDB_PAGE_SET,
   TMDB_QUERY_CHANGE,
-} from '../../constants/actionTypes';
+} from '@/constants/actionTypes';
 
 const tmdbReducer = handleActions({
 

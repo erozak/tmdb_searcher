@@ -5,8 +5,8 @@ import {
   onTmdbListClear,
   onTmdbListSave,
   onTmdbPageSet,
-} from '../../actions';
-import { searchMovie as getSearchMovie } from '../../tmdbApi';
+} from '@/actions';
+import { searchMovie as getSearchMovie } from '@/tmdbApi';
 import discoverMovieFilter from './utils/discoverMovieFilter';
 
 export default function* searchGet({ payload: { query, page } }) {
@@ -20,7 +20,9 @@ export default function* searchGet({ payload: { query, page } }) {
     yield put(onTmdbDetailClear());
     yield put(onTmdbListSave(movies));
     yield put(onTmdbPageSet(pagination));
+  } else if (process.env.NODE_ENV === 'development') {
+    console.error(`[ERR][SAGA] Search Get: ${query}, page(${page})`, error);
   } else {
-    console.err(`[ERR][SAGA] Search Get: ${query}, page(${page})`, error);
+    alert('Oops! Something error. Please reload and try again.');
   }
 }
