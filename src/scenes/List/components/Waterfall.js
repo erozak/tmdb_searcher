@@ -1,10 +1,12 @@
+import React from 'react';
 import Path from 'path';
 import PropTypes from 'prop-types';
 import IPropTypes from 'react-immutable-proptypes';
 import Shortid from 'shortid';
 
+import TMDB from '@/constants/TMDB';
+
 import WaterfallItemOfMovie from './WaterfallItemOfMovie';
-import TMDB from '../../../constants/TMDB';
 
 const Waterfall = ({
   movies,

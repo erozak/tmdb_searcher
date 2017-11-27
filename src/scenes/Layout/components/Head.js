@@ -1,4 +1,5 @@
 import React from 'react';
+import IconSearch from 'react-icons/lib/fa/search';
 
 import tmdbLogo from '../images';
 import DiscoverButton from '../containers/discoverButton';
@@ -14,7 +15,7 @@ const Head = () => (
       </nav>
       <div className="input-group search-wrap">
         <label className="lb" htmlFor="search">
-          <i className="fa fa-search" />
+          <IconSearch />
         </label>
         <div className="inp-wrap">
           <QueryInput

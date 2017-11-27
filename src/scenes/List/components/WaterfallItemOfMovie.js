@@ -1,7 +1,9 @@
+import React from 'react';
 import Path from 'path';
 import PropTypes from 'prop-types';
+import IconExclamation from 'react-icons/lib/fa/exclamation-triangle';
 
-import TMDB from '../../../constants/TMDB';
+import TMDB from '@/constants/TMDB';
 
 const WaterfallItemOfMovie = ({
   id,
@@ -29,7 +31,7 @@ const WaterfallItemOfMovie = ({
           {
             adult && (
               <div className="item">
-                <i className="fa fa-exclamation-triangle" />
+                <IconExclamation />
                 <span>Explicit</span>
               </div>
             )
