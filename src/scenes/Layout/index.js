@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import {
   Switch,
   Route,
-  withRouter,
 } from 'react-router-dom';
 
 import Detail from '@/scenes/Detail';
@@ -27,4 +25,4 @@ const Frame = () => (
   </div>
 );
 
-export default withRouter(connect()(Frame));
+export default Frame;

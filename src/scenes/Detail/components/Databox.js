@@ -3,22 +3,23 @@ import Path from 'path';
 import PropTypes from 'prop-types';
 import IPropTypes from 'react-immutable-proptypes';
 import Shortid from 'shortid';
-import { List } from 'immutable';
 
-import ProgressCircle from '../../../models/ProgressCircle';
-import TMDB from '../../../constants/TMDB';
+import ProgressCircle from '@/models/ProgressCircle';
+import TMDB from '@/constants/TMDB';
 
 const Databox = ({
-  title,
-  backdrop,
-  poster,
-  rate,
-  tagline,
-  overview,
-  language,
-  runtime,
-  release,
-  genres,
+  detail: {
+    title,
+    backdrop,
+    poster,
+    rate,
+    tagline,
+    overview,
+    language,
+    runtime,
+    release,
+    genres,
+  },
 }) => (
   <div className="data-box picked">
     {
@@ -92,29 +93,22 @@ const Databox = ({
 );
 
 Databox.propTypes = {
-  title: PropTypes.string,
-  backdrop: PropTypes.string,
-  poster: PropTypes.string,
-  rate: PropTypes.number,
-  tagline: PropTypes.string,
-  overview: PropTypes.string,
-  language: PropTypes.string,
-  runtime: PropTypes.number,
-  release: PropTypes.string,
-  genres: IPropTypes.listOf(PropTypes.string),
+  detail: PropTypes.objectOf({
+    title: PropTypes.string.isRequired,
+    backdrop: PropTypes.string,
+    poster: PropTypes.string,
+    rate: PropTypes.number,
+    tagline: PropTypes.string,
+    overview: PropTypes.string,
+    language: PropTypes.string.isRequired,
+    runtime: PropTypes.number,
+    release: PropTypes.string,
+    genres: IPropTypes.listOf(PropTypes.string),
+  }),
 };
 
 Databox.defaultProps = {
-  title: '',
-  backdrop: '',
-  poster: '',
-  rate: 0,
-  tagline: '',
-  overview: '',
-  language: '',
-  runtime: 0,
-  release: '',
-  genres: List(),
+  detail: {},
 };
 
 export default Databox;

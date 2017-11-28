@@ -3,7 +3,6 @@ import 'babel-polyfill';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
 import { createHashHistory } from 'history';
 
 import 'sanitize.css';
@@ -18,14 +17,10 @@ const createdHistory = createHashHistory({
 
 const store = storeConfig(createdHistory);
 
-const history = syncHistoryWithStore(createdHistory, store, {
-  selectLocationState: state => state.get('routing').toJS(),
-});
-
 ReactDOM.render(
   (
     <Provider store={store}>
-      <Router history={history}>
+      <Router history={createdHistory}>
         <App />
       </Router>
     </Provider>
