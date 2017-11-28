@@ -14,7 +14,7 @@ const UglifyPluginConfig = new UglifyJSPlugin({
 });
 
 const FaviconswebpackPluginConfig = new FaviconswebpackPlugin({
-  logo: utils.resolve('assets/img/favicon.png'),
+  logo: utils.resolve('assets/images/favicon.png'),
   prefix: 'icons-[hash]/',
   emitStats: false,
   statsFilename: 'iconstats-[hash].json',
