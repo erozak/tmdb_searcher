@@ -1,14 +1,23 @@
 import React from 'react';
+import qs from 'querystring';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import {
-  onTmdbSearchGet,
-} from '@/actions';
+const SearchButton = ({ query, ...otherProps }) => {
+  const { dispatch, ...others } = otherProps;
 
-const SearchButton = ({ query, ...others }) => (
-  <button type="button" {...others}>Search</button>
-);
+  return (
+    <Link
+      to={{
+        pathname: '/',
+        search: `?${qs.stringify({ query })}`,
+      }}
+      {...others}
+    >Search
+    </Link>
+  );
+};
 
 SearchButton.propTypes = {
   query: PropTypes.string.isRequired,
@@ -18,23 +27,4 @@ const mapStateToProps = state => ({
   query: state.getIn(['tmdb', 'query']),
 });
 
-const mapDispatchToProps = dispath => ({
-  onClick: query => (
-    () => dispath(onTmdbSearchGet(query, 1))
-  ),
-});
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { query } = stateProps;
-  const { onClick } = dispatchProps;
-
-  return Object.assign({}, stateProps, dispatchProps, ownProps, {
-    onClick: onClick(query),
-  });
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps,
-)(SearchButton);
+export default connect(mapStateToProps)(SearchButton);

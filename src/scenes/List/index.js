@@ -9,7 +9,9 @@ import Waterfall from './components/Waterfall';
 
 class List extends React.Component {
   componentWillMount() {
-    const { toInit } = this.props;
+    const { toInit, location } = this.props;
+
+    console.log(location);
 
     toInit(TMDB.defaultOptions.discover);
   }
@@ -24,6 +26,12 @@ class List extends React.Component {
 
 List.propTypes = {
   toInit: PropTypes.func.isRequired,
+  location: PropTypes.objectOf({
+    pathname: PropTypes.string.isRequired,
+    search: PropTypes.string.isRequired,
+    hash: PropTypes.string.isRequired,
+    state: PropTypes.object,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

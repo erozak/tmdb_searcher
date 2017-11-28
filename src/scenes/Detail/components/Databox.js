@@ -1,7 +1,6 @@
 import React from 'react';
 import Path from 'path';
 import PropTypes from 'prop-types';
-import IPropTypes from 'react-immutable-proptypes';
 import Shortid from 'shortid';
 
 import ProgressCircle from '@/models/ProgressCircle';
@@ -9,16 +8,16 @@ import TMDB from '@/constants/TMDB';
 
 const Databox = ({
   detail: {
-    title,
     backdrop,
+    genres,
+    language,
+    overview,
     poster,
     rate,
-    tagline,
-    overview,
-    language,
-    runtime,
     release,
-    genres,
+    runtime,
+    tagline,
+    title,
   },
 }) => (
   <div className="data-box picked">
@@ -81,7 +80,7 @@ const Databox = ({
         <div className="genre">
           <ul className="tags">
             {
-              genres.map(val => (
+              genres && genres.map(val => (
                 <li className="item" key={Shortid.generate()}>{val}</li>
               ))
             }
@@ -94,21 +93,19 @@ const Databox = ({
 
 Databox.propTypes = {
   detail: PropTypes.objectOf({
-    title: PropTypes.string.isRequired,
+    adult: PropTypes.bool,
     backdrop: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    id: PropTypes.number,
+    language: PropTypes.string,
+    overview: PropTypes.string,
     poster: PropTypes.string,
     rate: PropTypes.number,
-    tagline: PropTypes.string,
-    overview: PropTypes.string,
-    language: PropTypes.string.isRequired,
-    runtime: PropTypes.number,
     release: PropTypes.string,
-    genres: IPropTypes.listOf(PropTypes.string),
-  }),
-};
-
-Databox.defaultProps = {
-  detail: {},
+    runtime: PropTypes.number,
+    tagline: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
 };
 
 export default Databox;

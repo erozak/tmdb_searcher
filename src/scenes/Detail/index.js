@@ -28,11 +28,12 @@ Detail.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const detail = state.getIn(['tmdb', 'detail']);
-  const hasDetail = !(detail === undefined);
+  const detail = state.getIn(['tmdb', 'detail']).toJS();
+  const detailId = detail.id;
+  const hasDetail = Boolean(detailId && detailId.toString().length > 0);
 
   return {
-    detail: hasDetail ? detail.toJS() : detail,
+    detail,
     hasDetail,
   };
 };

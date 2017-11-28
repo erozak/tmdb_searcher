@@ -13,7 +13,7 @@ import {
 
 const tmdbReducer = handleActions({
 
-  [TMDB_DETAIL_CLEAR]: state => state.set('detail', undefined),
+  [TMDB_DETAIL_CLEAR]: state => state.set('detail', Map()),
   [TMDB_DETAIL_SAVE]: (state, { payload: { detail } }) => (
     state.set('detail', detail)
   ),

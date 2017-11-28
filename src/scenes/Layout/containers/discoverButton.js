@@ -19,12 +19,14 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { path, ...otherState } = stateProps;
+  const { location, ...otherState } = stateProps;
   const { refresh, ...otherDispatch } = dispatchProps;
   const toHome = () => routerActions.push('/');
 
+  console.log(ownProps);
+
   return Object.assign({}, otherState, otherDispatch, ownProps, {
-    onClick: path === '/' ? refresh : toHome,
+    onClick: location === '/' ? refresh : toHome,
   });
 };
 
