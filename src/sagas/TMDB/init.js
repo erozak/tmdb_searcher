@@ -5,13 +5,14 @@ import {
   onTmdbListSave,
   onTmdbPageSet,
 } from '@/actions';
-import { discoverMovie as getDiscover } from '@/tmdbApi';
+import { discoverMovie } from '@/api/tmdb';
+
 import discoverMovieFilter from './utils/discoverMovieFilter';
 
 export default function* init({ payload: { options } }) {
   put(onTmdbListClear());
 
-  const discover = yield call(getDiscover, options);
+  const discover = yield call(discoverMovie, options);
 
   if (discover && discover.response) {
     const { pagination, movies } = discoverMovieFilter(discover.response);

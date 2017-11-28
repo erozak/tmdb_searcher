@@ -1,9 +1,12 @@
-import Axios from 'axios';
 import { fromJS as beImmutable } from 'immutable';
 
-import TMDB from '@/constants/TMDB';
+import Axios from '@/utils/axios';
+
+import { apiURL } from './config';
 
 const discoverMovie = (options) => {
+  const axiosWithUrl = Axios(apiURL.discover.movie);
+
   /*
   * doc: https://developers.themoviedb.org/3/discover
   *
@@ -43,17 +46,7 @@ const discoverMovie = (options) => {
   * }
   */
 
-  const config = {
-    url: '/discover/movie',
-    baseURL: TMDB.path.api,
-    method: 'get',
-    params: {
-      api_key: TMDB.key,
-      ...options,
-    },
-  };
-
-  return Axios(config)
+  return axiosWithUrl(options)
     .then(response => response.data)
     .then(response => ({ response: beImmutable(response) }))
     .catch(error => error);

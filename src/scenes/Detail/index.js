@@ -6,16 +6,23 @@ import { onTmdbDetailGet } from '@/actions';
 import Databox from './components/Databox';
 
 class Detail extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     const { getDetail } = this.props;
 
     getDetail();
   }
   render() {
-    const { hasDetail } = this.props;
+    const {
+      hasDetail,
+      location,
+      history,
+      match,
+      getDetail,
+      ...otherProps
+    } = this.props;
 
     return hasDetail ? (
-      <Databox {...this.props} />
+      <Databox {...otherProps} />
     ) : (
       <p>Loading</p>
     );

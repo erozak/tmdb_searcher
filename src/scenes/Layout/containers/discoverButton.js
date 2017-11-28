@@ -1,37 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { routerActions } from 'react-router-redux';
+import { withRouter } from 'react-router';
 
 import {
   onTmdbDiscoverGet,
 } from '@/actions';
-import TMDB from '@/constants/TMDB';
+import { getDiscoveryParams } from '@/api/tmdb';
 
 const DiscoverButton = props => (
-  <button type="button" {...props}>Discover</button>
+  <button type="button" {...props} className="nav-item">Discover</button>
 );
 
-const mapStateToProps = state => ({
-  path: state.getIn(['routing', 'match', 'path']),
-});
+const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => ({
-  refresh: () => dispatch(onTmdbDiscoverGet(TMDB.defaultOptions.discover)),
+  toRefresh: (isExact) => {
+    dispatch(onTmdbDiscoverGet(getDiscoveryParams()));
+    if (!isExact) {
+      dispatch(routerActions.push('/discover'));
+    }
+  },
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { location, ...otherState } = stateProps;
-  const { refresh, ...otherDispatch } = dispatchProps;
-  const toHome = () => routerActions.push('/');
+  const { toRefresh, ...otherDispatch } = dispatchProps;
+  const {
+    location: { pathname },
+    match,
+    location,
+    ...otherOwns
+  } = ownProps;
 
-  console.log(ownProps);
-
-  return Object.assign({}, otherState, otherDispatch, ownProps, {
-    onClick: location === '/' ? refresh : toHome,
+  return Object.assign({}, stateProps, otherDispatch, otherOwns, {
+    onClick: () => toRefresh(/^\/discover/.test(pathname)),
   });
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
   mergeProps,
-)(DiscoverButton);
+)(DiscoverButton));

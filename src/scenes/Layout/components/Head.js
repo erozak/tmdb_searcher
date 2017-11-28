@@ -1,9 +1,8 @@
 import React from 'react';
 import IconSearch from 'react-icons/lib/fa/search';
-import { Link } from 'react-router-dom';
 
 import tmdbLogo from '../images';
-// import DiscoverButton from '../containers/discoverButton';
+import DiscoverButton from '../containers/discoverButton';
 import SearchButton from '../containers/searchButton';
 import QueryInput from '../containers/queryInput';
 
@@ -12,7 +11,7 @@ const Head = () => (
     <div className="navbar">
       <div className="logo img-wrap"><img className="img" src={tmdbLogo} alt="TMDB Logo" /></div>
       <nav className="nav">
-        <Link to="/" className="nav-item">Discover</Link>
+        <DiscoverButton />
       </nav>
       <div className="input-group search-wrap">
         <label className="lb" htmlFor="search">

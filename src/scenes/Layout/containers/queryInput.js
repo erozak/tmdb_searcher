@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
   onChange: event => dispatch(onTmdbQueryChange(event.target.value)),
   withKeyPress: query => (event) => {
     if (event.key === 'Enter') {
-      dispatch(onTmdbSearchGet(query, 1));
+      dispatch(onTmdbSearchGet(query));
     }
   },
 });

@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     DefinePluginConfig,
   ],
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map',
   devServer: {
     inline: true,
     contentBase: utils.resolve('dist'),

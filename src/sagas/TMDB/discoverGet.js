@@ -7,7 +7,7 @@ import {
   onTmdbListAdd,
   onTmdbPageSet,
 } from '@/actions';
-import { discoverMovie as getDiscover } from '@/tmdbApi';
+import { discoverMovie as getDiscover } from '@/api/tmdb';
 import discoverMovieFilter from './utils/discoverMovieFilter';
 
 export default function* discoverGet({ payload: { options } }) {

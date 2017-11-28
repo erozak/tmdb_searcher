@@ -92,7 +92,7 @@ const Databox = ({
 );
 
 Databox.propTypes = {
-  detail: PropTypes.objectOf({
+  detail: PropTypes.shape({
     adult: PropTypes.bool,
     backdrop: PropTypes.string,
     genres: PropTypes.arrayOf(PropTypes.string),

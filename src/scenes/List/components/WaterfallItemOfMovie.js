@@ -50,7 +50,7 @@ const WaterfallItemOfMovie = ({
           }
         </div>
         <div>
-          <Link to={`/${id}`}>See More</Link>
+          <Link to={`/movie/${id}`}>See More</Link>
         </div>
       </div>
     </div>

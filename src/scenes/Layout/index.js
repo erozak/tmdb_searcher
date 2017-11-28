@@ -17,7 +17,9 @@ const Frame = () => (
       <div className="container">
         <Switch>
           <Route path="/" exact component={List} />
-          <Route path="/:id" component={Detail} />
+          <Route path="/search" component={List} />
+          <Route path="/discover" component={List} />
+          <Route path="/movie/:id" component={Detail} />
         </Switch>
       </div>
     </div>

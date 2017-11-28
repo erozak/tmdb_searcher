@@ -52,7 +52,10 @@
       {
         "ignore": [
           "children",
-          "route"
+          "route",
+          "history",
+          "location",
+          "match"
         ]
       }
     ],

@@ -6,7 +6,7 @@ import {
   onTmdbDetailClear,
   onTmdbDetailSave,
 } from '@/actions';
-import { getMovie } from '@/tmdbApi';
+import { getMovie } from '@/api/tmdb';
 
 export default function* detailGet({ payload: { id } }) {
   put(onTmdbDetailClear());
