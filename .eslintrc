@@ -1,80 +1,8 @@
 {
-  "extends": "airbnb",
-  "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import",
-    "babel"
-  ],
-  "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": false,
-    "codeFrame": false,
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "env": {
-    "browser": true
+      "es6": true,
+      "node": true
   },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./config/webpack.base.js"
-      }
-    }
-  },
-  "rules": {
-    "camelcase": 0,
-    "import/no-extraneous-dependencies": [
-      0
-    ],
-    "import/prefer-default-export": 0,
-    "max-len": 0,
-    "new-cap": [
-      0
-    ],
-    "no-console": 0,
-    "no-restricted-globals": 1,
-    "no-param-reassign": 1,
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ],
-    "react/prop-types": [
-      "error",
-      {
-        "ignore": [
-          "children",
-          "route",
-          "history",
-          "location",
-          "match"
-        ]
-      }
-    ],
-    "jsx-a11y/anchor-is-valid": [
-      "warn",
-      {
-        "components": [
-          "Link"
-        ],
-        "specialLink": [
-          "hrefLeft",
-          "hrefRight"
-        ],
-        "aspects": [
-          "noHref",
-          "invalidHref",
-          "preferButton"
-        ]
-      }
-    ]
-  }
+  "extends": ["standard", "prettier"],
+  "rules": {}
 }
