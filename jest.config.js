@@ -1,11 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'enzyme',
   roots: [
     '<rootDir>/app'
   ],
   transform: {
-    '^.+\\.ts$': 'ts-jest'
+    '^.+\\.tsx?$': 'ts-jest'
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
   moduleFileExtensions: [
@@ -13,11 +13,10 @@ module.exports = {
     'tsx',
     'js',
     'jsx',
-    'json',
-    'node'
+    'json'
   ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  setupFilesAfterEnv: ['<rootDir>/node_modules/jest-enzyme/lib/index.js', '<rootDir>/internals/testing/test-bundler.js'],
+  setupFilesAfterEnv: ['<rootDir>/internals/testing/test-bundler.js', 'jest-enzyme'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname'
