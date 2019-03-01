@@ -6,4 +6,4 @@ export interface IServiceManagerContextValue {
   tmdb: TMDB;
 }
 
-export const ServiceManagerContext = createContext<IServiceManagerContextValue | null>();
+export const ServiceManagerContext = createContext<IServiceManagerContextValue | null>(null);

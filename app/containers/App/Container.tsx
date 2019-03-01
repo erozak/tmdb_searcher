@@ -1,13 +1,15 @@
 import React from 'react';
 
-import tmdbLogoImage from '../../images/tmdb_logo_rectangle_green.svg';
+import GlobalStyle from './GlobalStyle';
 
 function AppContainer() {
   return (
-    <div>
-      <img src={tmdbLogoImage} alt="tmdb logo"/>
-      Hello World!
-    </div>
+    <>
+      <div>
+        Hello World!
+      </div>
+      <GlobalStyle />
+    </>
   )
 }
 
