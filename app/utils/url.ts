@@ -23,7 +23,9 @@ export function appendSearchQueries<T extends object>(
 ): void {
   const defaulted = defaults(queries, defaultQueries);
 
-  if (isEmpty(defaulted)) { return; }
+  if (isEmpty(defaulted)) {
+    return;
+  }
 
   travel<T>(defaulted, ([key, value]) => appendSearchQuery(url, key, value));
 }

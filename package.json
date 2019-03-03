@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier"
+      "pre-commit": "pretty-quick --staged"
     }
   },
   "author": "erozak",
@@ -94,6 +94,7 @@
     "nock": "^10.0.6",
     "prettier": "^1.16.4",
     "prettier-tslint": "^0.4.2",
+    "pretty-quick": "^1.10.0",
     "react-app-polyfill": "^0.2.1",
     "react-test-renderer": "^16.8.3",
     "rxjs-tslint-rules": "^4.17.2",
