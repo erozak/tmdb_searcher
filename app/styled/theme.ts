@@ -1,3 +1,4 @@
+/* tslint:disable:no-magic-numbers */
 import { lighten, rem, rgba } from 'polished';
 
 const colors = {
@@ -41,3 +42,4 @@ export const theme = {
 };
 
 export type ITheme = typeof theme;
+/* tslint:enable */

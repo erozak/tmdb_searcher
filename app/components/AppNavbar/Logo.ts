@@ -1,3 +1,4 @@
+/* tslint:disable:no-magic-numbers */
 import { rem } from 'polished';
 
 import Link from '../../elements/Link';
@@ -16,3 +17,4 @@ const AppNavbarLogo = styled(Link)`
 `;
 
 export default AppNavbarLogo;
+/* tslint:enable */

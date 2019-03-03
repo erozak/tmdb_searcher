@@ -1,14 +1,15 @@
+/* tslint:disable:no-magic-numbers */
 import { em, padding, rgba, textInputs, transitions } from 'polished';
-import { palette, theme } from 'styled-tools';
+import { palette, theme as themeProp } from 'styled-tools';
 
 import styled, { css } from '../../styled';
 
 export const searchBarFieldInputStyle = css`
   ${transitions('background-color', '0.14s ease-in-out')};
-  ${padding(0, em(8), 0, em(40))};
+  ${padding(0, em(8), 0, em(45))};
 
   flex: 1 1 100%;
-  color: ${theme('colors.white')};
+  color: ${themeProp('colors.white')};
   border: 0 none;
   min-width: 0;
   background-color: transparent;
@@ -20,6 +21,7 @@ export const searchBarFieldInputStyle = css`
 
   &:focus {
     background-color: ${({ theme }) => rgba(theme.colors.realBlack, 0.24)};
+    outline: 0 none;
   }
 
   &::placeholder {
@@ -39,3 +41,4 @@ const SearchBarGroupField = styled.span`
 `;
 
 export default SearchBarGroupField;
+/* tslint:enable */
