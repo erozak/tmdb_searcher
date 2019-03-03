@@ -1,8 +1,12 @@
 import { schema } from 'normalizr';
 
-import { ObjectRecord, Integer, DateString } from '../../../globals';
-import { IGenre, genreSchema, GenreEntityPack } from './genre';
-import { IProductionCompany, productionCompanySchema, ProductionCompanyEntityPack } from './productionCompany';
+import { DateString, Integer, ObjectRecord } from '../../../globals';
+import { GenreEntityPack, genreSchema, IGenre } from './genre';
+import {
+  IProductionCompany,
+  ProductionCompanyEntityPack,
+  productionCompanySchema,
+} from './productionCompany';
 
 export type MovieSchemaName = 'movies';
 export const MOVIE_SCHEMA_NAME: MovieSchemaName = 'movies';
@@ -14,7 +18,7 @@ export enum MOVIE_STATUS {
   postProduction = 'Post Production',
   released = 'Released',
   cancelled = 'Canceled',
-};
+}
 
 export interface IProductionCountry {
   iso_3166_1: string;
@@ -58,12 +62,18 @@ export type MovieEntities = ObjectRecord<IMovie>;
 
 interface IMovieEntityPack {
   movies: MovieEntities;
-};
-export type MovieEntityPack = IMovieEntityPack | GenreEntityPack | ProductionCompanyEntityPack;
+}
+export type MovieEntityPack =
+  | IMovieEntityPack
+  | GenreEntityPack
+  | ProductionCompanyEntityPack;
 
 const movieSchemaDefinition = {
   genres: [genreSchema],
   production_companies: [productionCompanySchema],
 };
 
-export const movieSchema = new schema.Entity(MOVIE_SCHEMA_NAME, movieSchemaDefinition);
+export const movieSchema = new schema.Entity(
+  MOVIE_SCHEMA_NAME,
+  movieSchemaDefinition,
+);

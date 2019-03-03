@@ -1,8 +1,8 @@
 import * as faker from 'faker';
-import { uniqueId, sample } from 'lodash';
+import { sample, uniqueId } from 'lodash';
 
-import { generateOne, generateMulti } from '../../../utils/generator';
 import { formatAsISO8601Date } from '../../../utils/date';
+import { generateMulti, generateOne } from '../../../utils/generator';
 
 import { MOVIE_STATUS } from '../schemas/movie';
 import { generateMockGenres } from './genre';
@@ -14,7 +14,9 @@ export const mockProductionCountry = () => ({
 });
 
 export const generateMockProductionCountry = generateOne(mockProductionCountry);
-export const generateMockProductionCountries = generateMulti(mockProductionCountry);
+export const generateMockProductionCountries = generateMulti(
+  mockProductionCountry,
+);
 
 export const mockSpokenLanguage = () => ({
   iso_639_1: faker.random.locale(),
@@ -28,29 +30,55 @@ export function mockMovie() {
   const id = Number(uniqueId());
   const belongs_to_collection: null = null;
   const sizeOfGenres = faker.random.number({ max: 6, min: 1, precision: 0 });
-  const sizeOfProductionCompany = faker.random.number({ max: 3, min: 1, precision: 0 });
-  const sizeOfProductionCountry = faker.random.number({ max: 5, min: 1, precision: 0 });
-  const sizeOfSpokenLanguages = faker.random.number({ max: 8, min: 1, precision: 0 });
+  const sizeOfProductionCompany = faker.random.number({
+    max: 3,
+    min: 1,
+    precision: 0,
+  });
+  const sizeOfProductionCountry = faker.random.number({
+    max: 5,
+    min: 1,
+    precision: 0,
+  });
+  const sizeOfSpokenLanguages = faker.random.number({
+    max: 8,
+    min: 1,
+    precision: 0,
+  });
 
   return {
     id,
     belongs_to_collection,
     adult: faker.random.boolean(),
-    backdrop_path: faker.random.boolean() ? `/${faker.system.fileName('jpg')}` : '',
-    budget: faker.random.number({ max: 100, min: 1, precision: 0 }) * (10 ** 5),
+    backdrop_path: faker.random.boolean()
+      ? `/${faker.system.fileName('jpg')}`
+      : '',
+    budget: faker.random.number({ max: 100, min: 1, precision: 0 }) * 10 ** 5,
     genres: generateMockGenres(sizeOfGenres),
     homepage: faker.random.boolean() ? faker.internet.url() : '',
     imdb_id: faker.random.boolean() ? `tt${id}` : '',
     original_language: faker.random.locale(),
     original_title: faker.random.word(),
-    overview: faker.lorem.paragraph(faker.random.number({ min: 3, max: 5, precision: 0 })),
+    overview: faker.lorem.paragraph(
+      faker.random.number({ min: 3, max: 5, precision: 0 }),
+    ),
     popularity: faker.random.number({ min: 0, max: 1, precision: 3 }),
-    poster_path: faker.random.boolean() ? `/${faker.system.fileName('jpg')}` : '',
-    production_companies: generateMockProductionCompanies(sizeOfProductionCompany),
-    production_countries: generateMockProductionCountries(sizeOfProductionCountry),
-    release_date: formatAsISO8601Date(faker.date.between('1911-1-1', faker.date.future(6))),
+    poster_path: faker.random.boolean()
+      ? `/${faker.system.fileName('jpg')}`
+      : '',
+    production_companies: generateMockProductionCompanies(
+      sizeOfProductionCompany,
+    ),
+    production_countries: generateMockProductionCountries(
+      sizeOfProductionCountry,
+    ),
+    release_date: formatAsISO8601Date(
+      faker.date.between('1911-1-1', faker.date.future(6)),
+    ),
     revenue: faker.random.number({ max: 10 ** 12, min: 10 ** 9, precision: 0 }),
-    runtime: faker.random.boolean() ? faker.random.number({ max: 300, min: 80, precision: 0 }) : null,
+    runtime: faker.random.boolean()
+      ? faker.random.number({ max: 300, min: 80, precision: 0 })
+      : null,
     spoken_languages: generateMockSpokenLanguages(sizeOfSpokenLanguages),
     status: sample(MOVIE_STATUS),
     tagline: faker.random.boolean() ? faker.lorem.sentence() : '',

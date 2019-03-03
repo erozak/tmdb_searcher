@@ -15,9 +15,8 @@ describe('modules/TMDB/request/checkCode', () => {
   it('should throw Request Error when got unmatched code.', () => {
     const response = new Response(JSON.stringify({}), { status: 200 });
 
-    return checkCode(response, 1)
-      .catch((error: Error) => {
-        expect(RequestError.match(error)).toBeTruthy();
-      });
+    return checkCode(response, 1).catch((error: Error) => {
+      expect(RequestError.match(error)).toBeTruthy();
+    });
   });
 });

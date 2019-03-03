@@ -1,8 +1,10 @@
 import { schema } from 'normalizr';
 
-import { ObjectRecord, Integer } from '../../../globals';
+import { Integer, ObjectRecord } from '../../../globals';
 
-export const PRODUCTION_COMPANY_SCHEMA_NAME = 'productionCompanies';
+export type ProductionCompanySchemaName = 'productionCompanies';
+export const PRODUCTION_COMPANY_SCHEMA_NAME: ProductionCompanySchemaName =
+  'productionCompanies';
 
 export interface IProductionCompany {
   id: Integer;
@@ -15,7 +17,9 @@ export type ProductionCompanyEntities = ObjectRecord<IProductionCompany>;
 
 interface IProductionCompanyEntityPack {
   productionCompanies: ProductionCompanyEntities;
-};
+}
 export type ProductionCompanyEntityPack = IProductionCompanyEntityPack;
 
-export const productionCompanySchema = new schema.Entity(PRODUCTION_COMPANY_SCHEMA_NAME);
+export const productionCompanySchema = new schema.Entity(
+  PRODUCTION_COMPANY_SCHEMA_NAME,
+);

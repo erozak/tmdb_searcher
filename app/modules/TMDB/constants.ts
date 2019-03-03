@@ -17,4 +17,4 @@ export enum SORT_OPTIONS {
   descendingByVoteAvarage = 'vote_average.desc',
   ascendingByVoteCount = 'vote_count.asc',
   descendingByVoteCount = 'vote_count.desc',
-};
+}

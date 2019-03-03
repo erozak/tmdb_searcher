@@ -1,9 +1,13 @@
+import { History } from 'history';
 import { createContext } from 'react';
 
-import { TMDB } from '../../modules/TMDB';
+import { TMDBManager } from '../../modules/TMDBManager';
 
 export interface IServiceManagerContextValue {
-  tmdb: TMDB;
+  tmdb: TMDBManager;
+  history: History;
 }
 
-export const ServiceManagerContext = createContext<IServiceManagerContextValue | null>(null);
+export const ServiceManagerContext = createContext<IServiceManagerContextValue | null>(
+  null,
+);

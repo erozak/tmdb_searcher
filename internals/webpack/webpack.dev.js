@@ -36,6 +36,6 @@ module.exports = merge(baseConfig, {
     contentBase: fromApp(),
     watchContentBase: true,
     inline: true,
-    port: 8080,
+    port: process.env.SERVER_PORT || 3000,
   }
 });

@@ -1,4 +1,4 @@
-import { conformsTo, isNumber, isString } from 'lodash'
+import { conformsTo, isNumber, isString } from 'lodash';
 
 import { mockGenre } from '../genre';
 

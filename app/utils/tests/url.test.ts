@@ -1,4 +1,4 @@
-import { appendSearchQuery, appendSearchQueries } from '../url';
+import { appendSearchQueries, appendSearchQuery } from '../url';
 
 describe('utils/url', () => {
   let url: URL;
@@ -57,6 +57,6 @@ describe('utils/url', () => {
 
       expect(url.searchParams.has('a')).toBeTruthy();
       expect(url.searchParams.getAll('a')).toContain('test');
-    })
-  })
+    });
+  });
 });

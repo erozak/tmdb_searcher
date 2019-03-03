@@ -4,7 +4,7 @@ import handleNotFound from './handleNotFound';
 import handleUnauthorized from './handleUnauthorized';
 
 export default function getMethodRequestFlow(response: Response) {
-  switch(response.status) {
+  switch (response.status) {
     case HTTP_CODE.noContent:
     case HTTP_CODE.resetContent:
       return Promise.resolve(null);
@@ -13,7 +13,10 @@ export default function getMethodRequestFlow(response: Response) {
     case HTTP_CODE.notFound:
       return handleNotFound(response);
     default:
-      if (response.status >= HTTP_CODE.ok && response.status < HTTP_CODE.multipleChoices) {
+      if (
+        response.status >= HTTP_CODE.ok &&
+        response.status < HTTP_CODE.multipleChoices
+      ) {
         return response.json();
       }
 

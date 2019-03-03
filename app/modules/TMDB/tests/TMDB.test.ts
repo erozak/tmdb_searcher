@@ -2,17 +2,18 @@ import { uniqueId } from 'lodash';
 import nock = require('nock');
 
 import { IExpectedReceivedData } from '../adapters/normalizeMovieList';
-import { generateMockMovies, generateMockMovie } from '../mocks/movie';
+import { SORT_OPTIONS, TMDB_API_HOST, TMDB_API_VERSION } from '../constants';
+import { generateMockMovie, generateMockMovies } from '../mocks/movie';
 import { TMDB } from '../TMDB';
-import { TMDB_API_HOST, TMDB_API_VERSION, SORT_OPTIONS } from '../constants';
 
 const tmdbNode = (node: string) => '/' + TMDB_API_VERSION.toString() + node;
 
 describe('modules/TMDB', () => {
   const API_KEY = 'test';
   const tmdb = new TMDB(API_KEY);
-  const tmdbNock = nock(TMDB_API_HOST)
-    .defaultReplyHeaders({ 'access-control-allow-origin': '*' });
+  const tmdbNock = nock(TMDB_API_HOST).defaultReplyHeaders({
+    'access-control-allow-origin': '*',
+  });
 
   beforeAll(() => {
     nock.disableNetConnect();
@@ -21,8 +22,7 @@ describe('modules/TMDB', () => {
   afterAll(() => {
     nock.cleanAll();
     nock.enableNetConnect();
-  })
-
+  });
 
   describe('static properties', () => {
     it('could get tmdb api version and host.', () => {
@@ -66,7 +66,9 @@ describe('modules/TMDB', () => {
   describe('searchMovie', () => {
     it('should return normalized movie list.', async () => {
       const size = 5;
-      const movies = generateMockMovies(size, () => ({ id: Number(uniqueId()) }));
+      const movies = generateMockMovies(size, () => ({
+        id: Number(uniqueId()),
+      }));
       const search = 'test';
       const data: IExpectedReceivedData = {
         page: 1,
@@ -101,7 +103,9 @@ describe('modules/TMDB', () => {
   describe('discoverMovies', () => {
     it('should return normalized movie list.', async () => {
       const size = 5;
-      const movies = generateMockMovies(size, () => ({ id: Number(uniqueId()) }));
+      const movies = generateMockMovies(size, () => ({
+        id: Number(uniqueId()),
+      }));
       const data: IExpectedReceivedData = {
         page: 1,
         results: movies,
@@ -136,7 +140,9 @@ describe('modules/TMDB', () => {
   describe('discoverMovies', () => {
     it('should return normalized movie list.', async () => {
       const size = 5;
-      const movies = generateMockMovies(size, () => ({ id: Number(uniqueId()) }));
+      const movies = generateMockMovies(size, () => ({
+        id: Number(uniqueId()),
+      }));
       const data: IExpectedReceivedData = {
         page: 1,
         results: movies,

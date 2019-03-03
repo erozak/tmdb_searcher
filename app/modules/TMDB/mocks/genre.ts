@@ -1,7 +1,7 @@
-import { uniqueId } from 'lodash';
 import * as faker from 'faker';
+import { uniqueId } from 'lodash';
 
-import { generateOne, generateMulti } from '../../../utils/generator';
+import { generateMulti, generateOne } from '../../../utils/generator';
 
 export const mockGenre = () => ({
   id: Number(uniqueId()),

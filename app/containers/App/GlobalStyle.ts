@@ -1,3 +1,5 @@
+import { palette, theme } from 'styled-tools';
+
 import { createGlobalStyle } from '../../styled';
 
 const GlobalStyle = createGlobalStyle`
@@ -11,9 +13,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     line-height: 1.6;
-    font-family: ${({ theme }) => theme.fontFamilies.paragraph};
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.secondary};
+    font-family: ${theme('fontFamilies.paragraph')};
+    color: ${theme('colors.white')};
+    background-color: ${palette('secondary')};
   }
 `;
 

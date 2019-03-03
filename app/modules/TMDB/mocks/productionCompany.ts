@@ -1,7 +1,7 @@
-import { uniqueId } from 'lodash';
 import * as faker from 'faker';
+import { uniqueId } from 'lodash';
 
-import { generateOne, generateMulti } from '../../../utils/generator';
+import { generateMulti, generateOne } from '../../../utils/generator';
 
 export const mockProductionCompany = () => ({
   name: faker.company.companyName(),
@@ -12,4 +12,6 @@ export const mockProductionCompany = () => ({
 
 export const generateMockProductionCompany = generateOne(mockProductionCompany);
 
-export const generateMockProductionCompanies = generateMulti(mockProductionCompany);
+export const generateMockProductionCompanies = generateMulti(
+  mockProductionCompany,
+);

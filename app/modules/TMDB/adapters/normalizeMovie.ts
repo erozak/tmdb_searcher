@@ -1,23 +1,24 @@
-import { normalize } from 'normalizr';
 import isArray from 'lodash/isArray';
+import { normalize } from 'normalizr';
 
-import { movieSchema, IMovie, MovieEntityPack } from '../schemas/movie';
+import { INormalizedData } from '../../../globals';
+import { IMovie, MovieEntityPack, movieSchema } from '../schemas/movie';
 
-export interface INormalizedMovieData {
-  result: IMovie['id'],
-  entities: MovieEntityPack,
-};
+export type NormalizedMovieData = INormalizedData<
+  MovieEntityPack,
+  IMovie['id']
+>;
 
-export function normalizeMovie(data: any): INormalizedMovieData {
+export function normalizeMovie(data: any): NormalizedMovieData {
   return normalize(data, movieSchema);
 }
 
-export interface INormalizedMoviesData {
-  result: Array<IMovie['id']>,
-  entities: MovieEntityPack,
-};
+export type NormalizedMoviesData = INormalizedData<
+  MovieEntityPack,
+  Array<IMovie['id']>
+>;
 
-export function normalizeMovies(data: any[]): INormalizedMoviesData {
+export function normalizeMovies(data: any[]): NormalizedMoviesData {
   const movies = isArray(data) ? data : [data];
 
   return normalize(movies, [movieSchema]);

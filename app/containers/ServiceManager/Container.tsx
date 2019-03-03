@@ -1,25 +1,31 @@
+import { History } from 'history';
 import React from 'react';
 
-import { ServiceManagerContext, IServiceManagerContextValue } from './context';
-import { TMDB } from 'modules/TMDB';
+import { TMDBManager } from '../../modules/TMDBManager';
+import { IServiceManagerContextValue, ServiceManagerContext } from './context';
 
 export interface IServiceManagerProps {
-  tmdbApiKey: string;
+  tmdb: TMDBManager;
+  history: History;
   children: React.ReactChild;
-};
+}
 
-type Props = IServiceManagerProps;
-
-function ServiceManagerContainer({ tmdbApiKey, children }: Props) {
-  const contextValue = React.useMemo((): IServiceManagerContextValue => ({
-    tmdb: new TMDB(tmdbApiKey),
-  }), [tmdbApiKey]);
+const ServiceManagerContainer: React.FunctionComponent<
+  IServiceManagerProps
+> = ({ tmdb, children, history }) => {
+  const contextValue = React.useMemo(
+    (): IServiceManagerContextValue => ({
+      history,
+      tmdb,
+    }),
+    [tmdb, history],
+  );
 
   return (
     <ServiceManagerContext.Provider value={contextValue}>
       {React.Children.only(children)}
     </ServiceManagerContext.Provider>
   );
-}
+};
 
 export default ServiceManagerContainer;

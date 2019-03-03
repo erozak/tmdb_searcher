@@ -1,6 +1,6 @@
 import * as faker from 'faker';
 
-import { generateOne, generateMulti } from '../generator';
+import { generateMulti, generateOne } from '../generator';
 
 describe('utils/generate', () => {
   interface IItem {
@@ -38,7 +38,7 @@ describe('utils/generate', () => {
       const item = toGenerateOne({ name });
 
       expect(item).toHaveProperty('name', name);
-    })
+    });
   });
 
   describe('generateMulti', () => {

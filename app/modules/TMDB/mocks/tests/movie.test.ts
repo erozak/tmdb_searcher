@@ -1,7 +1,14 @@
-import { values, isArray, conformsTo, isNumber, isString, isBoolean } from 'lodash'
+import {
+  conformsTo,
+  isArray,
+  isBoolean,
+  isNumber,
+  isString,
+  values,
+} from 'lodash';
 
-import { mockProductionCountry, mockSpokenLanguage, mockMovie } from '../movie';
 import { MOVIE_STATUS } from '../../schemas/movie';
+import { mockMovie, mockProductionCountry, mockSpokenLanguage } from '../movie';
 
 describe('modules/TMDB/mocks/productionCompany', () => {
   describe('mockProductionCountry', () => {
@@ -54,7 +61,8 @@ describe('modules/TMDB/mocks/productionCompany', () => {
         revenue: isNumber,
         runtime: (target: any) => isNumber(target) || target === null,
         spoken_languages: isArray,
-        status: (target: any) => values(MOVIE_STATUS).some(status => status === target),
+        status: (target: any) =>
+          values(MOVIE_STATUS).some(status => status === target),
         tagline: isString,
         title: isString,
         video: isBoolean,

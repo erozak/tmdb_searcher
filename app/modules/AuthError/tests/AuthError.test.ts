@@ -22,5 +22,5 @@ describe('modules/AuthError', () => {
 
     expect(error).toHaveProperty('name', AUTH_ERROR_NAME);
     expect(error).toHaveProperty('message', message);
-  })
+  });
 });

@@ -3,6 +3,7 @@
         "tslint:latest",
         "tslint-clean-code",
         "tslint-react",
+        "rxjs-tslint-rules",
         "tslint-plugin-prettier",
         "tslint-config-prettier"
     ],
@@ -50,7 +51,8 @@
         "no-invalid-template-strings": true,
         "object-literal-sort-keys": false,
         "switch-default": true,
-        "variable-name": true,
+        "variable-name": [true, "allow-pascal-case", "ban-keywords"],
+        "jsx-boolean-value": false,
         "prettier": true
     }
 }

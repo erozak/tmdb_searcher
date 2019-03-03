@@ -1,8 +1,11 @@
 import { get, has } from 'lodash';
 
-import { MOVIE_SCHEMA_NAME } from '../../schemas/movie';
 import { generateMockMovies } from '../../mocks/movie';
-import { normalizeMovieList, IExpectedReceivedData } from '../normalizeMovieList';
+import { MOVIE_SCHEMA_NAME } from '../../schemas/movie';
+import {
+  IExpectedReceivedData,
+  normalizeMovieList,
+} from '../normalizeMovieList';
 
 describe('modules/TMDB/adapters/normalizeMovieList', () => {
   it('should return a normalized data with pagination.', () => {
@@ -27,7 +30,9 @@ describe('modules/TMDB/adapters/normalizeMovieList', () => {
 
     movies.forEach(movie => {
       expect(normalized.result).toContain(movie.id);
-      expect(get(normalized.entities, [MOVIE_SCHEMA_NAME, movie.id])).toEqual(movie);
+      expect(get(normalized.entities, [MOVIE_SCHEMA_NAME, movie.id])).toEqual(
+        movie,
+      );
     });
   });
 });

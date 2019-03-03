@@ -2,10 +2,10 @@ import { Integer } from '../../globals';
 import { appendSearchQueries } from '../../utils/url';
 
 import { IRequest } from '../Request';
-import { TMDB_API_VERSION, TMDB_API_HOST, SORT_OPTIONS } from './constants';
-import getMethodRequestFlow from './request/getMethodRequestFlow';
 import { normalizeMovie } from './adapters/normalizeMovie';
 import { normalizeMovieList } from './adapters/normalizeMovieList';
+import { SORT_OPTIONS, TMDB_API_HOST, TMDB_API_VERSION } from './constants';
+import getMethodRequestFlow from './request/getMethodRequestFlow';
 
 export interface ISearchMovieQuery {
   page?: Integer;
@@ -71,8 +71,7 @@ export class TMDB implements IRequest {
     return fetch(url.toJSON(), {
       ...config,
       method: 'GET',
-    })
-      .then(getMethodRequestFlow);
+    }).then(getMethodRequestFlow);
   }
 
   public searchMovie(search: string, queries?: ISearchMovieQuery) {

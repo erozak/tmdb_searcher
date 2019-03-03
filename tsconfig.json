@@ -25,6 +25,9 @@
       {
         "name": "typescript-tslint-plugin",
         "configFile": "tslint.json",
+      },
+      {
+        "name": "typescript-styled-plugin"
       }
     ]
   },

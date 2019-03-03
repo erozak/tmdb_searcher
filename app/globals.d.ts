@@ -4,4 +4,11 @@ export type DateString = string;
 export type ValueOf<T extends object> = T[keyof T];
 export type Pair<T> = [string, T];
 export type Many<T> = T | T[];
-export type ObjectRecord<T extends object, K extends string = 'id'> = Record<T[K], T>;
+export type ObjectRecord<T extends object, K extends string = 'id'> = Record<
+  T[K],
+  T
+>;
+export interface INormalizedData<T extends object = {}, K = any> {
+  result: K;
+  entities: T;
+}

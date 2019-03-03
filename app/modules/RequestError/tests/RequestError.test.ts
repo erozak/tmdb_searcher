@@ -25,5 +25,5 @@ describe('modules/RequestError', () => {
 
     expect(error).toHaveProperty('name', REQUEST_ERROR_NAME);
     expect(error).toHaveProperty('response', response);
-  })
+  });
 });
