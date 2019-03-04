@@ -7,7 +7,7 @@ describe('modules/TMDB/resolveTMDBImage', () => {
     const images = ['test.png', '/test.png'];
 
     images.forEach(image => {
-      expect(resolveTMDBImage(image)).toMatch(pattern);
+      expect(resolveTMDBImage('w18', image)).toMatch(pattern);
     });
   });
 });

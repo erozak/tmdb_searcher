@@ -1,14 +1,15 @@
 import assign from 'lodash/assign';
 
-import { GenreEntities } from '..//TMDB/schemas/genre';
-import { MovieEntities } from '..//TMDB/schemas/movie';
-import { ProductionCompanyEntities } from '..//TMDB/schemas/productionCompany';
+import { empty } from '../../utils/object';
 import { IMovie, TMDB_SCHEMA_NAMES } from '../TMDB';
+import { GenreEntities } from '../TMDB/schemas/genre';
+import { MovieEntities } from '../TMDB/schemas/movie';
+import { ProductionCompanyEntities } from '../TMDB/schemas/productionCompany';
 
 export interface ITMDBEntitiesState {
-  genres: GenreEntities | {};
-  movies: MovieEntities | {};
-  productionCompanies: ProductionCompanyEntities | {};
+  genres: GenreEntities;
+  movies: MovieEntities;
+  productionCompanies: ProductionCompanyEntities;
 }
 
 export interface IPaginationState<T> {
@@ -37,9 +38,9 @@ export const defaultPagination = <T>(): IPaginationState<T> => ({
 
 export const defaultTMDBStore: ITMDBStore = {
   entities: {
-    [TMDB_SCHEMA_NAMES.genres]: {},
-    [TMDB_SCHEMA_NAMES.movies]: {},
-    [TMDB_SCHEMA_NAMES.productionCompanies]: {},
+    [TMDB_SCHEMA_NAMES.genres]: empty(),
+    [TMDB_SCHEMA_NAMES.movies]: empty(),
+    [TMDB_SCHEMA_NAMES.productionCompanies]: empty(),
   },
   search: assign(defaultPagination<IMovie['id']>(), {
     query: '',

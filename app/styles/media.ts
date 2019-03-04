@@ -1,9 +1,9 @@
-import { math } from 'polished';
+import { SimpleInterpolation } from 'styled-components';
 import { theme } from 'styled-tools';
 
 import { css } from '../styled';
 
-export function mobile(styles: typeof css) {
+export function mobile(styles: SimpleInterpolation) {
   return css`
     @media screen and (min-width: ${theme('breakpoints.mobile')}) {
       ${styles};
@@ -11,7 +11,7 @@ export function mobile(styles: typeof css) {
   `;
 }
 
-export function tablet(styles: typeof css) {
+export function tablet(styles: SimpleInterpolation) {
   return css`
     @media screen and (min-width: ${theme('breakpoints.tablet')}) {
       ${styles};
@@ -19,7 +19,7 @@ export function tablet(styles: typeof css) {
   `;
 }
 
-export function laptop(styles: typeof css) {
+export function laptop(styles: SimpleInterpolation) {
   return css`
     @media screen and (min-width: ${theme('breakpoints.laptop')}) {
       ${styles};

@@ -16,3 +16,10 @@ export function travel<T extends object>(
 
   return target;
 }
+
+export function empty<T extends object>(): T {
+  // tslint:disable-next-line:no-object-literal-type-assertion
+  const emptyObject = {} as T;
+
+  return emptyObject;
+}

@@ -1,6 +1,6 @@
 /* tslint:disable:no-magic-numbers */
-import { em, margin, padding } from 'polished';
-import { palette, theme } from 'styled-tools';
+import { em, padding } from 'polished';
+import { theme } from 'styled-tools';
 
 import { css } from '../../styled';
 

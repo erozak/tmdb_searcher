@@ -3,26 +3,42 @@ import { RouteComponentProps } from 'react-router-dom';
 import { pluck } from 'rxjs/operators';
 
 import logger from '../../logger';
+import {
+  IPaginationState,
+  ITMDBEntitiesState,
+} from '../../modules/TMDBManager/store';
+import { empty } from '../../utils/object';
 import useObservable from '../../utils/useObservable';
+import randomDiscoveryConfig from './randomDiscoveryConfig';
 
 import { ServiceManagerContext } from '../ServiceManager';
 import Skeleton from './Skeleton';
 
-import randomDiscoveryConfig from './randomDiscoveryConfig';
+import { IMovie } from '../../modules/TMDB';
 
 export interface IDiscoverListProps extends RouteComponentProps {}
 
-const DiscoverListContainer: React.FunctionComponent<
-  IDiscoverListProps
-> = () => {
+const DiscoverListContainer: React.FC<IDiscoverListProps> = () => {
   const discoveryConfig = React.useRef(randomDiscoveryConfig());
 
   const { tmdb } = React.useContext(ServiceManagerContext);
-  const movies = useObservable(tmdb.state$.pipe(pluck('discovery')), {
+  const discovery$ = React.useMemo(() => tmdb.state$.pipe(pluck('discovery')), [
+    tmdb,
+  ]);
+  const entities$ = React.useMemo(() => tmdb.state$.pipe(pluck('entities')), [
+    tmdb,
+  ]);
+
+  const discovery = useObservable<IPaginationState<IMovie['id']>>(discovery$, {
     currentPage: 0,
     pages: 0,
     size: 0,
     result: [],
+  });
+  const entities = useObservable<ITMDBEntitiesState>(entities$, {
+    movies: empty(),
+    productionCompanies: empty(),
+    genres: empty(),
   });
 
   React.useEffect(() => {
@@ -41,9 +57,8 @@ const DiscoverListContainer: React.FunctionComponent<
       subscription.unsubscribe();
     };
   }, [tmdb]);
-  logger.info('>>>', movies);
 
-  return <Skeleton size={movies.size} />;
+  return <Skeleton pages={discovery.result} movies={entities.movies} />;
 };
 
 export default DiscoverListContainer;

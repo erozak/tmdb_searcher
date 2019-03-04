@@ -1,7 +1,6 @@
 /* tslint:disable:no-magic-numbers */
 import { em, margin } from 'polished';
 import styled from '../../styled';
-import { listStyle } from '../../styles/elements';
 
 const InlineListItem = styled.li`
   ${margin(em(4))};

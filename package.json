@@ -26,6 +26,7 @@
     "favicons-webpack-plugin": "0.0.9",
     "history": "^4.7.2",
     "immer": "^2.0.0",
+    "iso-639-1": "^2.0.3",
     "lodash": "^4.17.11",
     "normalizr": "^3.3.0",
     "polished": "^3.0.0",

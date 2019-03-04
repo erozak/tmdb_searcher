@@ -16,6 +16,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme('fontFamilies.paragraph')};
     color: ${theme('colors.white')};
     background-color: ${palette('secondary')};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img {
+    image-rendering: smooth;
   }
 `;
 
